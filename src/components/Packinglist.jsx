@@ -1,12 +1,18 @@
+import Item from "./Item";
+
+const initialItems = [
+  { id: 1, description: "Passports", quantity: 2, packed: false },
+  { id: 2, description: "Socks", quantity: 12, packed: true },
+];
+
 function Packinglist() {
   return (
     <div className="list">
-      <select>
-        <option>Sort by input order</option>
-        <option>Sort by description</option>
-        <option>Sort by packed status</option>
-      </select>
-      <button>Clear list</button>
+      <ul>
+        {initialItems.map((x) => (
+          <Item object={x} key={x.id} />
+        ))}
+      </ul>
     </div>
   );
 }
