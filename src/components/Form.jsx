@@ -1,11 +1,17 @@
 import { useState } from "react";
 
-function Form() {
+function Form({ onAdd }) {
   const [input, setInput] = useState("");
   const [quantity, setQuantity] = useState(1);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (!input) return alert("input can not be emply");
+    const newItem = { input, quantity, packed: false, id: Date.now() };
+    console.log(newItem);
+
+    onAdd(newItem);
+
     setInput("");
     setQuantity(1);
   }
