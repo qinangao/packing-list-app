@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 function Form({ onAdd }) {
-  const [input, setInput] = useState("");
+  const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState(1);
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (!input) return alert("input can not be emply");
-    const newItem = { input, quantity, packed: false, id: Date.now() };
+    if (!description) return alert("input can not be emply");
+    const newItem = { description, quantity, packed: false, id: Date.now() };
     console.log(newItem);
 
     onAdd(newItem);
 
-    setInput("");
+    setDescription("");
     setQuantity(1);
   }
   return (
@@ -31,8 +31,8 @@ function Form({ onAdd }) {
       <input
         placeholder="Item..."
         type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
       />
       <button>Add</button>
     </form>
