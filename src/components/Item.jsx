@@ -7,7 +7,7 @@ export default function Item({ object, onDelete, onToggle }) {
         onChange={() => onToggle(object.id)}
       />
       <span style={object.packed ? { textDecoration: "line-through" } : {}}>
-        {object.quantity} {object.input}
+        {object.quantity} {object.description}
       </span>
       <button onClick={() => onDelete(object.id)}>❌</button>
     </li>
